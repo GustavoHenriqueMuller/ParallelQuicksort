@@ -90,7 +90,7 @@ int main() {
 
     // Algorithm
     auto start = omp_get_wtime();
-    #pragma omp parallel num_threads(12)
+    #pragma omp parallel
     {
         #pragma omp single
         {
