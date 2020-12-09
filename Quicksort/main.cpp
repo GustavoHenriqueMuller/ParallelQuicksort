@@ -16,10 +16,10 @@ void printArray(int* input, int length) {
     cout << "}" << endl;
 }
 
-int* randomArray(unsigned int size, int minNumber, int maxNumber) {
-    int* output = new int[size];
+int* randomArray(unsigned int length, int minNumber, int maxNumber) {
+    int* output = new int[length];
 
-    for (unsigned int i = 0; i < size; i++) {
+    for (unsigned int i = 0; i < length; i++) {
         output[i] = minNumber + (rand() % (maxNumber - minNumber));
     }
 
