@@ -1,7 +1,6 @@
 #include <iostream>
 #include <ctime>
 #include <omp.h>
-#include <teste.h>
 
 using namespace std;
 
@@ -76,19 +75,16 @@ void quicksort(int* input, int startIndex, int endIndex, const int &minSizeToPar
 }
 
 int main() {
+    srand(time(NULL));
+
     const int minSizeToParallelize = 1000;
     const int arrayLength = 1000000000;
     const bool print = false;
-    srand(time(NULL));
-
-    // Input
     int* array = randomArray(arrayLength, 1, 1000);
-    if(print) {
-        cout << "Input: ";
-        printArray(array, arrayLength);
-    }
 
-    // Algorithm
+    if(print)
+        cout << "Input: ", printArray(array, arrayLength);
+
     auto start = omp_get_wtime();
     #pragma omp parallel
     {
@@ -99,13 +95,9 @@ int main() {
     }
     auto end = omp_get_wtime();
 
-    // Output
-    if(print) {
-        cout << "Output: ";
-        printArray(array, arrayLength);
-    }
+    if(print)
+        cout << "Output: ", printArray(array, arrayLength);
 
     cout << "Time: " << end - start << "s" << endl;
-
     return 0;
 }

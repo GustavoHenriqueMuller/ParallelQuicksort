@@ -58,27 +58,21 @@ void quicksort(int* input, int startIndex, int endIndex) {
 }
 
 int main() {
-    const int arrayLength = 1000000000;
-    const bool print = false;
     srand(time(NULL));
 
-    // Input
+    const int arrayLength = 1000000000;
+    const bool print = false;
     int* array = randomArray(arrayLength, 1, 1000);
-    if(print) {
-        cout << "Input: ";
-        printArray(array, arrayLength);
-    }
 
-    // Algorithm
+    if(print)
+        cout << "Input: ", printArray(array, arrayLength);
+
     auto start = omp_get_wtime();
     quicksort(array, 0, arrayLength-1);
     auto end = omp_get_wtime();
 
-    // Output
-    if(print) {
-        cout << "Output: ";
-        printArray(array, arrayLength);
-    }
+    if(print)
+        cout << "Output: ", printArray(array, arrayLength);
 
     cout << "Time: " << end - start << "s" << endl;
     return 0;
