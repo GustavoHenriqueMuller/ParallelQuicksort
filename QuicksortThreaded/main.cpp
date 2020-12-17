@@ -99,5 +99,7 @@ int main() {
         cout << "Output: ", printArray(array, arrayLength);
 
     cout << "Time: " << end - start << "s" << endl;
+
+    delete array;
     return 0;
 }
